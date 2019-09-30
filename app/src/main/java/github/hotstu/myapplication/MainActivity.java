@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Checkable;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,9 +17,9 @@ import github.hotstu.naiue.widget.recycler.MOCommonViewHolder;
 import github.hotstu.naiue.widget.recycler.MOTypedRecyclerAdapter;
 import github.hotstu.recyclerbanner.BanerList;
 import github.hotstu.recyclerbanner.BannerLoop;
+import github.hotstu.recyclerbanner.CirclePagerIndicator;
 import github.hotstu.recyclerbanner.MyBannerAdapter;
 import github.hotstu.recyclerbanner.SomatoSnapHelper;
-import github.hotstu.recyclerbanner.indicator.CirclePagerIndicator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,9 +59,20 @@ public class MainActivity extends AppCompatActivity {
         adapter.addItems(new BanerList<>(Arrays.asList("1", "2", "3", "4")));
         list.setAdapter(adapter);
         list.scrollToPosition(0 + 4 * 1000);
-        list.addItemDecoration(new CirclePagerIndicator());
+        list.addItemDecoration(new CirclePagerIndicator(this));
         play = new BannerLoop(1000);
         play.attachToRecyclerView(list);
+
+
+//        AnimatedVectorDrawableCompat drawable = AnimatedVectorDrawableCompat.create(this, R.drawable.animate_shape);
+        ImageView image = findViewById(R.id.image);
+//        image.setImageDrawable(drawable);
+        image.setOnClickListener(v -> {
+            ((Checkable) v).toggle();
+        });
+//        VectorDrawable v = null;
+
+
     }
 
     @Override

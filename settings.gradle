@@ -1,2 +1,2 @@
-include ':app', ':banner', ':adapter'
+include ':app', ':banner', ':adapter', ':fancyindicator'
 rootProject.name='RecyclerBanner'

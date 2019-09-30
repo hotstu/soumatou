@@ -1,6 +1,8 @@
-package github.hotstu.recyclerbanner.indicator;
+package github.hotstu.recyclerbanner;
 
+import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -8,10 +10,11 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 
+import androidx.annotation.StyleRes;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import github.hotstu.recyclerbanner.IBannerAdapter;
+import github.hotstu.recyclerbanner.indicator.BaseBannerIndicator;
 
 public class CirclePagerIndicator extends BaseBannerIndicator {
     private int colorActive = 0xDE000000;
@@ -45,8 +48,15 @@ public class CirclePagerIndicator extends BaseBannerIndicator {
 
     private final Paint mPaint = new Paint();
 
-    public CirclePagerIndicator() {
-        mPaint.setStrokeWidth(mIndicatorStrokeWidth);
+    public CirclePagerIndicator(Context ctx) {
+        this(ctx, R.style.rb_circle_pager_indicator_style_default);
+    }
+
+    public CirclePagerIndicator(Context ctx, @StyleRes int style) {
+        TypedArray a = ctx.obtainStyledAttributes(style, R.styleable.rb_circle_pager_indictor_style);
+        int dimensionPixelSize = a.getDimensionPixelSize(R.styleable.rb_circle_pager_indictor_style_strokeWidth, (int) (mIndicatorStrokeWidth));
+        a.recycle();
+        mPaint.setStrokeWidth(dimensionPixelSize);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setAntiAlias(true);
     }
