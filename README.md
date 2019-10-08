@@ -21,7 +21,7 @@ RecyclerBanner
 实现思路：
 
 * 为什么不使用viewPager:
-viewPager代码日益陈旧，可能出现各种兼容性问题，以及和其他组件协作的问题
+viewPager代码日益陈旧，可能出现各种兼容性问题，以及和其他组件协作的问题， 参考viewpager2
 而recyclerView属于jetpack包，代码随时更新，并且架构设计优秀，支持各种扩展，实现复杂的特效
 
 * 实现想viewpager的翻页效果：

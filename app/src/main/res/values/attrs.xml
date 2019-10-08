@@ -2,6 +2,6 @@
 <resources>
     <attr name="state_custom1" format="boolean" />
     <declare-styleable name="MyCheckableImageViewState">
-        <attr name="state_custom1"/>
+        <attr name="state_custom1" />
     </declare-styleable>
 </resources>
