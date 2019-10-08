@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         list.setLayoutManager(layout);
         SomatoSnapHelper snapHelper = new SomatoSnapHelper();
         snapHelper.attachToRecyclerView(list);
-
         MyBannerAdapter adapter = new MyBannerAdapter(4);
         adapter.addDelegate(new MOTypedRecyclerAdapter.AdapterDelegate() {
             @Override

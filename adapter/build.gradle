@@ -18,6 +18,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 
 }
 
@@ -30,3 +34,4 @@ dependencies {
     implementation 'github.hotstu.naiue:lib:1.0.0'
     implementation project(path: ':banner')
 }
+apply from: "../deployBintray.gradle"
