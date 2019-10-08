@@ -10,13 +10,14 @@ import androidx.appcompat.widget.AppCompatImageView;
 /**
  * @author hglf [hglf](https://github.com/hotstu)
  * @since 9/30/19
- *
+ * <p>
  * Also don’t forget to set the android:background of the button to use the theme value ?android:selectableItemBackgroundBorderless to get the nice ripple effect on touch.
  */
 public class MyCheckableImageView extends AppCompatImageView implements Checkable {
 
     private static final int[] CHECKED_STATE_SET = {
-            android.R.attr.state_checked
+            //android.R.attr.state_checked
+            R.attr.state_custom1
     };
 
     private boolean checked;

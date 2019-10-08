@@ -36,5 +36,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation project(path: ':banner')
     implementation project(path: ':adapter')
-    implementation project(path: ':fancyindicator')
+    implementation project(path: ':indicator')
 }
