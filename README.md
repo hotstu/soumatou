@@ -1,5 +1,8 @@
 RecyclerBanner
 ===================
+[![author](https://img.shields.io/badge/author-hglf-blue.svg)](https://github.com/hotstu)
+[![Download](https://api.bintray.com/packages/hglf/maven/RecyclerBanner/images/download.svg) ](https://bintray.com/hglf/maven/RecyclerBanner/_latestVersion)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 (yet Another) Banner widget based on RecyclerView
 
@@ -47,19 +50,19 @@ implementation 'github.hotstu.recyclerbanner:indicator:1.0.0'//optional
 ```
 
 ```java
-        RecyclerView list = findViewById(R.id.list);
-        LinearLayoutManager layout = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        list.setLayoutManager(layout);
-        SomatoSnapHelper snapHelper = new SomatoSnapHelper();
-        snapHelper.attachToRecyclerView(list);
-        MyBannerAdapter adapter = new MyBannerAdapter(4);
-        adapter.addItems(new BanerList<>(Arrays.asList("1", "2", "3", "4")));
-        list.setAdapter(adapter);
-        list.scrollToPosition(0 + 4 * 1000);
-        list.addItemDecoration(new CirclePagerIndicator(this));
-        play = new BannerLoop(1000);
-        play.attachToRecyclerView(list);
-        play.startPlay();
+RecyclerView list = findViewById(R.id.list);
+LinearLayoutManager layout = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+list.setLayoutManager(layout);
+SomatoSnapHelper snapHelper = new SomatoSnapHelper();
+snapHelper.attachToRecyclerView(list);
+MyBannerAdapter adapter = new MyBannerAdapter(4);
+adapter.addItems(new BanerList<>(Arrays.asList("1", "2", "3", "4")));
+list.setAdapter(adapter);
+list.scrollToPosition(0 + 4 * 1000);
+list.addItemDecoration(new CirclePagerIndicator(this));
+BannerLoop play = new BannerLoop(1000);
+play.attachToRecyclerView(list);
+play.startPlay();
         
 ```
 
