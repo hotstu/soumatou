@@ -15,13 +15,20 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class BannerLoop extends RecyclerView.ItemDecoration implements RecyclerView.OnItemTouchListener {
     RecyclerView mRecyclerView = null;
-    int period = 5 * 1000;
+    final int period;
+    final boolean reverse;
 
     public BannerLoop() {
+        this(5 * 1000);
     }
 
     public BannerLoop(int period) {
+        this(period, false);
+    }
+
+    public BannerLoop(int period, boolean reverse) {
         this.period = period;
+        this.reverse = reverse;
     }
 
     public void attachToRecyclerView(@Nullable RecyclerView recyclerView) {
@@ -36,7 +43,6 @@ public class BannerLoop extends RecyclerView.ItemDecoration implements RecyclerV
             setupCallbacks();
         }
     }
-
 
 
     private void setupCallbacks() {
@@ -75,12 +81,16 @@ public class BannerLoop extends RecyclerView.ItemDecoration implements RecyclerV
 
     public void stopPlay() {
         Log.d("BannerLoop", "stopPlay");
-        mRecyclerView.removeCallbacks(task);
+        if (mRecyclerView != null) {
+            mRecyclerView.removeCallbacks(task);
+        }
     }
 
     public void startPlay() {
         Log.d("BannerLoop", "startPlay");
-        boolean b = mRecyclerView.postDelayed(task, period);
+        if (mRecyclerView != null) {
+            mRecyclerView.postDelayed(task, period);
+        }
     }
 
     private Runnable task = new Runnable() {
@@ -92,11 +102,20 @@ public class BannerLoop extends RecyclerView.ItemDecoration implements RecyclerV
             int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
             RecyclerView.Adapter adapter = mRecyclerView.getAdapter();
             assert adapter != null;
-            if (firstVisibleItemPosition + 1 < adapter.getItemCount()) {
-                mRecyclerView.smoothScrollToPosition(firstVisibleItemPosition + 1);
+            if (!reverse) {
+                if (firstVisibleItemPosition + 1 < adapter.getItemCount()) {
+                    mRecyclerView.smoothScrollToPosition(firstVisibleItemPosition + 1);
+                } else {
+                    mRecyclerView.scrollToPosition(0);
+                }
             } else {
-                mRecyclerView.scrollToPosition(0);
+                if (firstVisibleItemPosition - 1 < 0) {
+                    mRecyclerView.scrollToPosition(adapter.getItemCount() - 1);
+                } else {
+                    mRecyclerView.smoothScrollToPosition(firstVisibleItemPosition - 1);
+                }
             }
+
             mRecyclerView.postDelayed(this, period);
         }
     };

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.StyleRes;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,8 +63,8 @@ public class CirclePagerIndicator extends BaseBannerIndicator {
     }
 
     @Override
-    public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
-        super.onDrawOver(c, parent, state);
+    public void onDrawOver(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+        super.onDrawOver(canvas, parent, state);
         IBannerAdapter adapter = (IBannerAdapter) parent.getAdapter();
         assert adapter != null;
         int itemCount = adapter.getBannerItemCount();
@@ -77,7 +78,7 @@ public class CirclePagerIndicator extends BaseBannerIndicator {
         // center vertically in the allotted space
         float indicatorPosY = parent.getHeight() - mIndicatorHeight / 2F;
 
-        drawInactiveIndicators(c, indicatorStartX, indicatorPosY, itemCount);
+        drawInactiveIndicators(canvas, indicatorStartX, indicatorPosY, itemCount);
 
         // find active page (which should be highlighted)
         LinearLayoutManager layoutManager = (LinearLayoutManager) parent.getLayoutManager();
@@ -100,7 +101,7 @@ public class CirclePagerIndicator extends BaseBannerIndicator {
         if (highlightPosition == itemCount - 1) {
             progress = 0;
         }
-        drawHighlights(c, indicatorStartX, indicatorPosY, highlightPosition, progress);
+        drawHighlights(canvas, indicatorStartX, indicatorPosY, highlightPosition, progress);
     }
 
     private void drawInactiveIndicators(Canvas c, float indicatorStartX, float indicatorPosY, int itemCount) {
@@ -141,7 +142,7 @@ public class CirclePagerIndicator extends BaseBannerIndicator {
     }
 
     @Override
-    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
         //outRect.bottom = mIndicatorHeight;
     }

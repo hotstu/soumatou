@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="rb_circle_pager_indictor_style">
         <attr name="strokeColor" format="color" />
+        <attr name="strokeColorActive" format="color" />
         <attr name="strokeWidth" format="dimension" />
     </declare-styleable>
 </resources>
