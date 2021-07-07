@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <style name="rb_circle_pager_indicator_style_default">
-        <item name="strokeColor">#fff</item>
-        <item name="strokeWidth">4dp</item>
-    </style>
-</resources>

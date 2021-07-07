@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="soumatou_pager_indicator_style_square">
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:height">4dp</item>
+        <item name="android:width">8dp</item>
+        <item name="soumatou_gap">2dp</item>
+    </style>
+
+    <style name="soumatou_pager_indicator_style_circle">
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:height">16dp</item>
+        <item name="android:width">16dp</item>
+        <item name="soumatou_gap">8dp</item>
+    </style>
+
+    <style name="soumatou_pager_indicator_style_default" parent="soumatou_pager_indicator_style_square">
+    </style>
+
+</resources>

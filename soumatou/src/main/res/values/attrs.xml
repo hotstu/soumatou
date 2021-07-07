@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="soumatou_pager_indicator_style">
+        <attr name="android:height" />
+        <attr name="android:width" />
+        <attr name="android:layout_marginBottom" />
+        <attr name="soumatou_colorActive" format="color" />
+        <attr name="soumatou_colorInactive" format="color" />
+        <attr name="soumatou_gap" format="dimension" />
+    </declare-styleable>
+</resources>

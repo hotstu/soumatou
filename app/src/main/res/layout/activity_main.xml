@@ -21,6 +21,18 @@
         android:background="?android:attr/listDivider" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list3"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:fastScrollEnabled="false"
+        tools:listitem="@layout/list_item" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list2"
         android:layout_width="match_parent"
         android:layout_height="24dp"
@@ -34,9 +46,11 @@
 
     <github.hotstu.myapplication.MyCheckableImageView
         android:id="@+id/image"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
         android:background="?android:selectableItemBackgroundBorderless"
+        android:tint="@color/colorPrimary"
         app:srcCompat="@drawable/animatedselector" />
 </LinearLayout>
