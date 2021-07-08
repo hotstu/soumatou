@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode Integer.parseInt(VERSION_CODE)
+        versionName "${VERSION_NAME}"
     }
 
     buildTypes {
@@ -33,4 +33,5 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
 }
-//apply from: "../deployBintray.gradle"
+
+apply from: "../gradle-mvn-push.gradle"
